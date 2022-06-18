@@ -1191,6 +1191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIPoints
       objectReference: {fileID: 0}
+    - target: {fileID: 429864331630026031, guid: c2d886c002649ab448eac19f189cf776, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 429864332696253515, guid: c2d886c002649ab448eac19f189cf776, type: 3}
       propertyPath: MaxPoint
       value: 50

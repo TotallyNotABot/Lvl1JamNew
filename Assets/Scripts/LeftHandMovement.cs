@@ -49,7 +49,7 @@ public class LeftHandMovement : MonoBehaviour
 
         if(PInput.ReadValue<Vector2>().x == 0 && PInput.ReadValue<Vector2>().y == 0)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.position, RestPos.position, Speed*Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, RestPos.localPosition, Speed*Time.deltaTime);
         }
 
         location = transform.localPosition;

@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlideSO : MonoBehaviour
+[CreateAssetMenu(fileName = "Slide", menuName = "ScriptableObjects/Slide", order = 1)]
+public class SlideSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Sprite _Sprite;
+    public float Points;
+
 }
