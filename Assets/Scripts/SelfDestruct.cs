@@ -14,6 +14,7 @@ public class SelfDestruct : MonoBehaviour
     IEnumerator KillTimer(float timer)
     {
         yield return new WaitForSeconds(timer);
+        Destroy(gameObject);
     }
 
 

@@ -47,8 +47,8 @@ public class Player : MonoBehaviour
 
    IEnumerator HapticFeedback()
     {
-        GamePad.SetVibration(playerIndex, .1f, .1f);
-        yield return new WaitForSeconds(0.35f);
+        GamePad.SetVibration(playerIndex, 1f, 1f);
+        yield return new WaitForSeconds(0.5f);
         GamePad.SetVibration(playerIndex, 0, 0);
     }
 }
