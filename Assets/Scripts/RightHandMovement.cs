@@ -9,23 +9,35 @@ public class RightHandMovement : MonoBehaviour
     public float Speed;
     public Vector3 location;
     public InputAction PInput;
+    public InputActionAsset PInputAsset;
     public Vector3 temp;
     public Transform RestPos;
-    // Start is called before the first frame update
-    void Start()
+
+    public MoveHandAction RightHandControls;
+    
+
+
+    private void Awake()
     {
-        
+        RightHandControls = new MoveHandAction();
     }
 
 
     private void OnEnable()
     {
         PInput.Enable();
+        PInputAsset.Enable();
+        RightHandControls.Enable();
+        PInput = RightHandControls.Player.MoveRightBumper;
     }
 
     private void OnDisable()
     {
         PInput.Disable();
+        RightHandControls.Disable();
+        PInputAsset.Enable();
+       // PInputAsset.FindAction("Move");
+        
     }
     // Update is called once per frame
     void Update()

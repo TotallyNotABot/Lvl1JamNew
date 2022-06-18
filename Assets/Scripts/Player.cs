@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public Transform HandsPosition;
     public GameObject Effect;
     PointUIScript pointScript;
+    public ClapScript ClapScpt;
 
 
     private void Start()
@@ -44,11 +45,12 @@ public class Player : MonoBehaviour
 
     public void PlayerClap()
     {
-        ClapSound.Play();
+      
         StartCoroutine(HapticFeedback());
         Instantiate(Effect,HandsPosition.transform.position,transform.rotation);
         pointScript.SetPoints();
         Debug.Log("Clapped");
+        ClapScpt.PlayAudioSource();
     }
 
 
