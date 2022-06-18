@@ -14,26 +14,19 @@ public class PointUIScript : MonoBehaviour
 
     public bool isGettingPoints;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {    
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGettingPoints == true)
-        {
-            PlayerOnePoints++;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && isGettingPoints == true)
+        //{
+        //    PlayerOnePoints++;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGettingPoints == false)
-        {
-            PlayerOnePoints--;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && isGettingPoints == false)
+        //{
+        //    PlayerOnePoints--;
+        //}
         
         UpdateUI();
     }
@@ -54,4 +47,18 @@ public class PointUIScript : MonoBehaviour
         }
     }
 
+
+    public void SetPoints()
+    {
+        if(isGettingPoints)
+        {
+            PlayerOnePoints++;
+        }
+        else
+        {
+            PlayerOnePoints--;
+        }
+
+        Debug.Log("Fosk");
+    }
 }

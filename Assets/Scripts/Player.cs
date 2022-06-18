@@ -16,6 +16,13 @@ public class Player : MonoBehaviour
     GamePadState prevState;
     public Transform HandsPosition;
     public GameObject Effect;
+    PointUIScript pointScript;
+
+
+    private void Start()
+    {
+        pointScript = GameObject.Find("PointUIComponent").GetComponent<PointUIScript>();
+    }
     void Update()
     {
         if(LeftHandClap && RightHandClap && inAClap != true)
@@ -40,6 +47,7 @@ public class Player : MonoBehaviour
         ClapSound.Play();
         StartCoroutine(HapticFeedback());
         Instantiate(Effect,HandsPosition.transform.position,transform.rotation);
+        pointScript.SetPoints();
         Debug.Log("Clapped");
     }
 
