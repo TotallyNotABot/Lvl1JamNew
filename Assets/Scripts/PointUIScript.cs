@@ -13,6 +13,7 @@ public class PointUIScript : MonoBehaviour
     public TextMeshProUGUI amountText;
 
     public bool isGettingPoints;
+    public float pointsValue;
 
     // Update is called once per frame
     void Update()
@@ -36,12 +37,12 @@ public class PointUIScript : MonoBehaviour
         imgFill.fillAmount = PlayerOnePoints / MaxPoint;
         amountText.text = $"{PlayerOnePoints}/{MaxPoint}";
 
-        if(PlayerOnePoints <= 0)
+        if (PlayerOnePoints <= 0)
         {
             PlayerOnePoints = 0;
         }
 
-        if(PlayerOnePoints >= MaxPoint)
+        if (PlayerOnePoints >= MaxPoint)
         {
             PlayerOnePoints = MaxPoint;
         }
@@ -50,14 +51,9 @@ public class PointUIScript : MonoBehaviour
 
     public void SetPoints()
     {
-        if(isGettingPoints)
-        {
-            PlayerOnePoints++;
-        }
-        else
-        {
-            PlayerOnePoints--;
-        }
+     
+            PlayerOnePoints += pointsValue;
+     
 
         Debug.Log("Fosk");
     }
