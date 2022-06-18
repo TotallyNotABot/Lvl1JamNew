@@ -11,22 +11,35 @@ public class LeftHandMovement : MonoBehaviour
     public InputAction PInput;
     public Vector3 temp;
     public Transform RestPos;
+    public Vector2 MoveInput;
+    public MoveHandAction1 LeftHandControls;
+    public AController RootController;
+
+    private void Awake()
+    {
+        LeftHandControls = new MoveHandAction1();
+    }
+
     // Start is called before the first frame update
     private void OnEnable()
     {
         PInput.Enable();
+        LeftHandControls.Enable();
+        PInput = LeftHandControls.Player.MoveLeftBumper;
     }
 
     private void OnDisable()
     {
         PInput.Disable();
+        LeftHandControls.Disable();
     }
     // Update is called once per frame
     void Update()
     {
 
         //transform.localPosition -= new Vector3(Input.GetAxisRaw("Horizontal")*Speed,Input.GetAxisRaw("Vertical")*-Speed,0)*Time.deltaTime;
-        temp = new Vector3(PInput.ReadValue<Vector2>().x, PInput.ReadValue<Vector2>().y, 0);
+        MoveInput = RootController.MoveInputLeft;
+        temp = new Vector3(MoveInput.x, MoveInput.y, 0);
         transform.localPosition += temp * Speed * Time.deltaTime;
 
         if (transform.localPosition.x > 5.3f)

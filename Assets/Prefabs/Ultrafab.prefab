@@ -2747,6 +2747,7 @@ GameObject:
   - component: {fileID: 6611516758475489234}
   - component: {fileID: 3603530615114783398}
   - component: {fileID: 6040128289598317769}
+  - component: {fileID: 340884759413448117}
   m_Layer: 0
   m_Name: Clapper
   m_TagString: Untagged
@@ -2787,7 +2788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 4e71e1d9fa6165a45a205c5f77804fbc, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -2798,7 +2799,39 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 340884759413448117}
+        m_TargetAssemblyTypeName: AController, Assembly-CSharp
+        m_MethodName: OnTest2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 573af57a-5871-4837-bbb5-a89fd75081a3
+    m_ActionName: Player/MoveRightBumper[/XInputControllerWindows/rightStick/up,/XInputControllerWindows1/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows1/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows1/rightStick/left,/XInputControllerWindows/rightStick/right,/XInputControllerWindows1/rightStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 340884759413448117}
+        m_TargetAssemblyTypeName: AController, Assembly-CSharp
+        m_MethodName: OnTest
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5ce2eca9-db5d-4adf-8e95-64ea2cc8237e
+    m_ActionName: Player/MoveLeftBumper[/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -2816,6 +2849,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12965b1b5d9b3e641af6a1c42ae3cb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &340884759413448117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6611516758475489235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20dc69df596aebe43b7296ab0f1da8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveInput: {x: 0, y: 0}
+  MoveInputLeft: {x: 0, y: 0}
 --- !u!1 &6611516758592324062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,6 +3115,8 @@ MonoBehaviour:
   PInputAsset: {fileID: -944628639613478452, guid: 4e71e1d9fa6165a45a205c5f77804fbc, type: 3}
   temp: {x: 0, y: 0, z: 0}
   RestPos: {fileID: 6611516757008926306}
+  MoveInput: {x: 0, y: 0}
+  RootController: {fileID: 340884759413448117}
 --- !u!1 &6611516758842644267
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,6 +3280,8 @@ MonoBehaviour:
     m_Flags: 0
   temp: {x: 0, y: 0, z: 0}
   RestPos: {fileID: 6611516756801196666}
+  MoveInput: {x: 0, y: 0}
+  RootController: {fileID: 340884759413448117}
 --- !u!1 &6611516758845727071
 GameObject:
   m_ObjectHideFlags: 0

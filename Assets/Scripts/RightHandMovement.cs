@@ -2,32 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
+
 
 public class RightHandMovement : MonoBehaviour
 {
-
+  
     public float Speed;
     public Vector3 location;
     public InputAction PInput;
     public InputActionAsset PInputAsset;
     public Vector3 temp;
     public Transform RestPos;
-
+    public Vector2 MoveInput;
     public MoveHandAction RightHandControls;
-    
+    public AController RootController;
 
+
+
+    private void Start()
+    {
+      
+    }
 
     private void Awake()
     {
-        RightHandControls = new MoveHandAction();
+       RightHandControls = new MoveHandAction();
     }
 
 
+ 
     private void OnEnable()
     {
         PInput.Enable();
         PInputAsset.Enable();
-        RightHandControls.Enable();
+       RightHandControls.Enable();
         PInput = RightHandControls.Player.MoveRightBumper;
     }
 
@@ -36,7 +45,7 @@ public class RightHandMovement : MonoBehaviour
         PInput.Disable();
         RightHandControls.Disable();
         PInputAsset.Enable();
-       // PInputAsset.FindAction("Move");
+       //PInputAsset.FindAction("Move");
         
     }
     // Update is called once per frame
@@ -46,8 +55,8 @@ public class RightHandMovement : MonoBehaviour
         // Vector2 temp = PInput.ReadValue<Vector2>();
 
         //transform.localPosition -= new Vector3(Input.GetAxisRaw("RightHandX") *Speed,Input.GetAxisRaw("Vertical")*-Speed,0)*Time.deltaTime;
-
-        temp = new Vector3(PInput.ReadValue<Vector2>().x, PInput.ReadValue<Vector2>().y, 0);
+        MoveInput = RootController.MoveInput;
+        temp = new Vector3(MoveInput.x, MoveInput.y, 0);
         transform.localPosition += temp*Speed*Time.deltaTime;
         if(transform.localPosition.x > 6.2f)
         {
