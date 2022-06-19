@@ -15,13 +15,40 @@ public class RestartTheScene : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Action.ReadValue<float>() > 0)
+        if(Action.ReadValue<float>() > 0)
         {
-            Debug.Log("TestScene");
-            SceneManager.LoadScene("TestScene");
+            SceneRestart();
         }
     }
+    public void HoldMe(InputAction.CallbackContext context)
+    {
+        if (context.performed) // the key has been pressed
+        {
+            SceneManager.LoadScene("TestScene");
+            //dothething
+        }
+        if (context.canceled) //the key has been released
+        {
+            //stopdoingthething
+        }
+    }
+
+
+    private void OnEnable()
+    {
+        Action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        Action.Disable();
+    }
+    public void SceneRestart()
+    {
+        SceneManager.LoadScene("TestScene");
+        Debug.Log("StartPressed");
+    }
+
 }
