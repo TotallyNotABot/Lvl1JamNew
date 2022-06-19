@@ -18,11 +18,17 @@ public class Player : MonoBehaviour
     public GameObject Effect;
     PointUIScript pointScript;
     public ClapScript ClapScpt;
+    public GameObject Pivot;
+    [SerializeField]
+    private int playerID = 0;
 
 
     private void Start()
     {
+      
+        GameObject.Find("GameManager").GetComponent<GameManager>().PlayerJoined(Pivot, this.gameObject);
         pointScript = GameObject.Find("PointUIComponent").GetComponent<PointUIScript>();
+        pointScript.SetPoints(playerID);
     }
     void Update()
     {
@@ -42,13 +48,17 @@ public class Player : MonoBehaviour
             hasClapped = false;
         }
     }
+    public void SetPlayerID(int playerID)
+    {
+        this.playerID = playerID;
+    }
 
     public void PlayerClap()
     {
       
         StartCoroutine(HapticFeedback());
         Instantiate(Effect,HandsPosition.transform.position,transform.rotation);
-        pointScript.SetPoints();
+        pointScript.SetPoints(this.playerID);
         Debug.Log("Clapped");
         ClapScpt.PlayAudioSource();
     }
