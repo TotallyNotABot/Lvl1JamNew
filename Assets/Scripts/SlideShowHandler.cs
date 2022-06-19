@@ -25,7 +25,7 @@ public class SlideShowHandler : MonoBehaviour
         SpriteDisplay = GameObject.Find("SpriteDisplay").GetComponent<SpriteRenderer>();
         ClappingText.text = "Clapping: NOT COOL BRO";
 
-        StartCoroutine();
+        StartCoroutine(ChangeClappingState());
     }
 
     // Update is called once per frame
@@ -48,15 +48,12 @@ public class SlideShowHandler : MonoBehaviour
         SlideSO CurrentSlide = Slide[Random.Range(0, Slide.Length)];
         SpriteDisplay.sprite = CurrentSlide._Sprite;
         script.pointsValue = CurrentSlide.Points;
-        script.SetPoints();
+        //script.SetPoints();
         float slideTime = Random.Range(MinSlideTime, MaxSlideTime);
         isClappingCool = !isClappingCool;
         yield return new WaitForSeconds(slideTime);
-        StartCoroutine();
+        StartCoroutine(ChangeClappingState());
     }
 
-    public void StartCoroutine()
-    {
-        myCoroutine = StartCoroutine(ChangeClappingState());
-    }
+   
 }

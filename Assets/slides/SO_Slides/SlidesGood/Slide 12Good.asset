@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Slide 12Good
   m_EditorClassIdentifier: 
   _Sprite: {fileID: 21300000, guid: 82a3b2005f1e1464c961eb8a48efadc3, type: 3}
-  Points: 100
+  Points: 1

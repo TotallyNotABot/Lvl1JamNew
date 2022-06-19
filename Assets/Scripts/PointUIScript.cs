@@ -6,11 +6,12 @@ using TMPro;
 
 public class PointUIScript : MonoBehaviour
 {
-    public float PlayerOnePoints;
+    public float[] PlayerPoints;
     public float MaxPoint;
 
-    public Image imgFill;
-    public TextMeshProUGUI amountText;
+    public Image[] imgFill;
+    public TextMeshProUGUI[] amountText;
+   
 
     public bool isGettingPoints;
     public float pointsValue;
@@ -29,31 +30,30 @@ public class PointUIScript : MonoBehaviour
         //    PlayerOnePoints--;
         //}
         
-        UpdateUI();
+       
     }
 
-    public void UpdateUI()
-    {
-        imgFill.fillAmount = PlayerOnePoints / MaxPoint;
-        amountText.text = $"{PlayerOnePoints}/{MaxPoint}";
-
-        if (PlayerOnePoints <= 0)
-        {
-            PlayerOnePoints = 0;
-        }
-
-        if (PlayerOnePoints >= MaxPoint)
-        {
-            PlayerOnePoints = MaxPoint;
-        }
-    }
+  
 
 
-    public void SetPoints()
+    public void SetPoints(int playerID)
     {
      
-            PlayerOnePoints += pointsValue;
-     
+            PlayerPoints[playerID-1] += pointsValue;
+
+        imgFill[playerID-1].fillAmount = PlayerPoints[playerID-1] / MaxPoint;
+        amountText[playerID-1].text = $"{PlayerPoints[playerID-1]}/{MaxPoint}";
+
+        if (PlayerPoints[playerID-1] <= 0)
+        {
+            PlayerPoints[playerID-1] = 0;
+        }
+
+        if (PlayerPoints[playerID-1] >= MaxPoint)
+        {
+            PlayerPoints[playerID-1] = MaxPoint;
+        }
+
 
         Debug.Log("Fosk");
     }
