@@ -3390,7 +3390,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  MaxPoint: 100
+  MaxPoint: 6
   imgFill:
   - {fileID: 429864332604245506}
   - {fileID: 1818076652}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PointUIScript : MonoBehaviour
 {
@@ -16,10 +17,14 @@ public class PointUIScript : MonoBehaviour
     public bool isGettingPoints;
     public float pointsValue;
 
-    // Update is called once per frame
-    void Update()
-    {    
 
+    private void Start()
+    {
+        Debug.Log("Hest");
+    }
+    void Update()
+    {
+        Debug.Log("sdfsdfs");
         //if (Input.GetKeyDown(KeyCode.Space) && isGettingPoints == true)
         //{
         //    PlayerOnePoints++;
@@ -28,9 +33,32 @@ public class PointUIScript : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.Space) && isGettingPoints == false)
         //{
         //    PlayerOnePoints--;
-        //}
-        
-       
+
+
+        for (int i = 0; i < PlayerPoints.Length; i++)
+        {
+            Debug.Log("ddddddd");
+            if (PlayerPoints[i] >= MaxPoint)
+            {
+                switch(i)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Player1Wins");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Player2Wins");
+                        break;
+                    case 2:
+                        SceneManager.LoadScene("Player3Wins");
+                        break;
+                    case 3:
+                        SceneManager.LoadScene("Player4Wins");
+                        break;
+                }
+            }
+        }
+
+
     }
 
   
@@ -40,7 +68,7 @@ public class PointUIScript : MonoBehaviour
     {
      
             PlayerPoints[playerID-1] += pointsValue;
-
+        Debug.Log("Lort");
         imgFill[playerID-1].fillAmount = PlayerPoints[playerID-1] / MaxPoint;
         amountText[playerID-1].text = $"{PlayerPoints[playerID-1]}/{MaxPoint}";
 
@@ -55,6 +83,8 @@ public class PointUIScript : MonoBehaviour
         }
 
 
-        Debug.Log("Fosk");
+
+
+       
     }
 }

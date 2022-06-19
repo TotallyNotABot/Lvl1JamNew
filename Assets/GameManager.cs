@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
     private int maxPlayers = 4;
     [SerializeField]
     GameObject[] PlayerUI;
-  
 
+    private void Start()
+    {
+        
+    }
 
     public int Players
     {
