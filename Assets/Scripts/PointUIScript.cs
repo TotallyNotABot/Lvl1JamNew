@@ -20,11 +20,11 @@ public class PointUIScript : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Hest");
+        
     }
     void Update()
     {
-        Debug.Log("sdfsdfs");
+       
         //if (Input.GetKeyDown(KeyCode.Space) && isGettingPoints == true)
         //{
         //    PlayerOnePoints++;
@@ -37,7 +37,7 @@ public class PointUIScript : MonoBehaviour
 
         for (int i = 0; i < PlayerPoints.Length; i++)
         {
-            Debug.Log("ddddddd");
+         
             if (PlayerPoints[i] >= MaxPoint)
             {
                 switch(i)

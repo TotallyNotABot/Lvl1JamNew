@@ -12,9 +12,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject[] PlayerUI;
 
+
+    public Animator LeftCurtainAnimator;
+  
+    public Animator PresenterAnimator;
+
+
+
+
     private void Start()
     {
-        
+        StartTheGame();
     }
 
     public int Players
@@ -37,6 +45,20 @@ public class GameManager : MonoBehaviour
             //}
 
         }
+    }
+
+    public void StartTheGame()
+    {
+        if(LeftCurtainAnimator != null)
+        {
+            LeftCurtainAnimator.Play("Action1");
+        }
+        
+      if(PresenterAnimator != null)
+        {
+            PresenterAnimator.Play("WalkOnStage");
+        }
+       
     }
 
     public void PlayerJoined(GameObject pivotObject, GameObject playerObj)

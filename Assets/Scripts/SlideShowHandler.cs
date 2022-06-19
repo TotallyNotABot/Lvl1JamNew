@@ -19,6 +19,11 @@ public class SlideShowHandler : MonoBehaviour
 
     private SpriteRenderer SpriteDisplay;
     public SlideSO[] Slide;
+
+    SlideSO CurrentSlide;
+
+
+    public Animator ProjectorAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +50,10 @@ public class SlideShowHandler : MonoBehaviour
 
     IEnumerator ChangeClappingState()
     {
-        SlideSO CurrentSlide = Slide[Random.Range(0, Slide.Length)];
-        SpriteDisplay.sprite = CurrentSlide._Sprite;
-        script.pointsValue = CurrentSlide.Points;
+
+        ProjectorAnimator.Play("NewProjection");
+        CurrentSlide = Slide[Random.Range(0, Slide.Length)];
+       
         //script.SetPoints();
         float slideTime = Random.Range(MinSlideTime, MaxSlideTime);
         isClappingCool = !isClappingCool;
@@ -55,5 +61,12 @@ public class SlideShowHandler : MonoBehaviour
         StartCoroutine(ChangeClappingState());
     }
 
+
+    public void SlideActions()
+    {
+        Debug.Log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+        SpriteDisplay.sprite = CurrentSlide._Sprite;
+        script.pointsValue = CurrentSlide.Points;
+    }
    
 }
