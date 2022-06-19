@@ -30,8 +30,14 @@ public class SlideShowHandler : MonoBehaviour
         SpriteDisplay = GameObject.Find("SpriteDisplay").GetComponent<SpriteRenderer>();
         ClappingText.text = "Clapping: NOT COOL BRO";
 
+    
+    }
+
+    public void StartSlideShow()
+    {
         StartCoroutine(ChangeClappingState());
     }
+
 
     // Update is called once per frame
     void Update()

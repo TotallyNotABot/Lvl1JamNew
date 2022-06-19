@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f82f61861ac21449b13dc81ecac644, type: 3}
   m_Name: Slide 6Good
   m_EditorClassIdentifier: 
-  _Sprite: {fileID: 21300000, guid: 90734e198554dc9419136a0377fbc6b5, type: 3}
+  _Sprite: {fileID: 21300000, guid: a9a81762ab2089f42b378ba1383fdc04, type: 3}
   Points: 1

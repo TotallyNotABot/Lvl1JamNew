@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int maxPlayers = 4;
     [SerializeField]
     GameObject[] PlayerUI;
+    public SlideShowHandler Handler;
 
 
     public Animator LeftCurtainAnimator;
@@ -22,6 +23,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Handler = GameObject.Find("PointUIComponent").GetComponent<SlideShowHandler>();
+        if (PresenterAnimator != null)
+        {
+            PresenterAnimator.Play("WalkOnStage");
+        }
+
+        StartCoroutine(StartDelay());
+    }
+
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(14);
         StartTheGame();
     }
 
@@ -49,15 +63,14 @@ public class GameManager : MonoBehaviour
 
     public void StartTheGame()
     {
-        if(LeftCurtainAnimator != null)
+        Handler.StartSlideShow();
+
+        if (LeftCurtainAnimator != null)
         {
             LeftCurtainAnimator.Play("Action1");
         }
         
-      if(PresenterAnimator != null)
-        {
-            PresenterAnimator.Play("WalkOnStage");
-        }
+     
        
     }
 
